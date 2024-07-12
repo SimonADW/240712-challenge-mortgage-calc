@@ -1,8 +1,9 @@
 import React from "react";
+import style from './Footer.module.css'
 
 const Footer = () => {
 	return (
-		<div>
+		<div className={style.footer}>
 			Challenge by{" "}
 			<a href="https://www.frontendmentor.io?ref=challenge">
 				Frontend Mentor

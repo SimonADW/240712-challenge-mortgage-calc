@@ -1,0 +1,52 @@
+.mainContainer {
+	background: var(--color-white);
+	padding: 20px;
+	flex: 1;
+}
+
+.mainContainer button:not(.clearAllButton),
+.mainContainer input:not([type="radio"]) {
+	height: 2.5rem;
+	width: 100%;
+	font-weight: 700;
+}
+
+.clearAllButton {
+	text-decoration: underline;
+	margin-bottom: 20px;
+}
+
+.mainContainer label {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+.inputInnerLabel {
+	position: absolute;
+
+	width: fit-content;
+	padding: 5px 15px;
+	background:var(--color-lime);
+}
+
+.radioButtons label {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	
+	border: 1px solid grey;
+	
+}
+
+.calcButton {
+	border-radius: var(--border-radius-large);
+	padding: 5px 30px;
+	background: var(--color-lime);
+
+}
+
