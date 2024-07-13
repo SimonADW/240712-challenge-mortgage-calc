@@ -10,36 +10,39 @@ const FormSection = () => {
 			
 			<br />
 
-			<label htmlFor="">
-				Mortgage Amount
+			<label htmlFor="">Mortgage Amount</label>
+			<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
+				<div className={`${style.placeholder} ${style.amountPlaceholder}`}>£</div>
 				<input type="number" name='amount' />
-			</label>
+			</div>
 
 
 			<div>
-				<label htmlFor="term">
-					Mortgage Term	
-				<input type="number" name='term'/>
-				</label>
+				<label htmlFor="term">Mortgage Term</label>
+				<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
+					<input type="number" name='term'/>
+					<div className={`${style.placeholder} ${style.amountPlaceholder}`}>years</div>
+				</div>
 
-				<label htmlFor="">
-					Interest Rate
+				<label htmlFor="">Interest Rate</label>
+				<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
 					<input type="number" name='rate'/>
-				</label>
+					<div className={`${style.placeholder} ${style.amountPlaceholder}`}>%</div>
+				</div>
 			</div>
 
-			<label className={style.radioButtons} htmlFor="mortgageType">
+			<div className={style.radioButtons} htmlFor="mortgageType">
 				Mortgage Type
-				<label htmlFor="repayment">
+				<label className={`${style.repaymentLabel} ${style.radioLabel}`} htmlFor="repayment">
 					<input type="radio" value="repayment" name='mortgageType' id='repayment' />
 					Repayment
 				</label>
 
-				<label htmlFor="interestOnly">
+				<label className={style.radioLabel} htmlFor="interestOnly">
 					<input type="radio" value="interestOnly" name='mortgageType' id='interestOnly' />
 					Interest Only
 				</label>
-			</label>
+			</div>
 
 			<button className={style.calcButton}>Calculate Repayment</button>
 

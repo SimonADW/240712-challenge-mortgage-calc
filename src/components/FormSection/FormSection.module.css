@@ -5,7 +5,8 @@
 }
 
 .mainContainer button:not(.clearAllButton),
-.mainContainer input:not([type="radio"]) {
+.mainContainer input:not([type="radio"]),
+.radioLabel {
 	height: 2.5rem;
 	width: 100%;
 	font-weight: 700;
@@ -16,19 +17,39 @@
 	margin-bottom: 20px;
 }
 
-.mainContainer label {
+.inputAndPlacholderWrapper {
 	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
+	border-radius: var(--border-radius-small);
+	overflow: hidden;
 }
 
-.inputInnerLabel {
-	position: absolute;
+.inputAndPlacholderWrapper:not(.amountField) {
+	justify-content: space-between	;
+}
 
-	width: fit-content;
-	padding: 5px 15px;
-	background:var(--color-lime);
+input[type='number'] {
+	border: none;
+	padding: 0 15px;
+}
+
+label:not(.radioLabel),
+.placeholder,
+.radioButtons,
+.clearAllButton {
+	color: grey;
+}
+
+.amountField {
+	border: 1px solid black;
+}
+
+.placeholder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 15px;
+	background: lightblue;
 }
 
 .radioButtons label {
@@ -37,10 +58,15 @@
 	flex-direction: row;
 	align-items: center;
 	gap: 10px;
+	color: black;
 	padding: 10px;
-	
-	border: 1px solid grey;
-	
+	margin-bottom: 5px;
+	border: 1px solid grey;	
+	border-radius: var(--border-radius-small);
+}
+
+.radioButtons {
+	margin-bottom: 30px;
 }
 
 .calcButton {
