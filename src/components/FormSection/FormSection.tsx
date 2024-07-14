@@ -3,7 +3,7 @@ import style from './FormSection.module.css'
 
 const FormSection = () => {
   return (
-	<div className={style.mainContainer}>
+	<section className={style.mainContainer}>
 		<form action="">
 			<h1>Mortgage Calculator</h1>
 			<button className={style.clearAllButton}>Clear All</button>
@@ -17,17 +17,21 @@ const FormSection = () => {
 			</div>
 
 
-			<div>
-				<label htmlFor="term">Mortgage Term</label>
-				<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
-					<input type="number" name='term'/>
-					<div className={`${style.placeholder} ${style.amountPlaceholder}`}>years</div>
+			<div className={style.termRateWrapper}>
+				<div>
+					<label htmlFor="term">Mortgage Term</label>
+					<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
+						<input type="number" name='term'/>
+						<div className={`${style.placeholder} ${style.amountPlaceholder}`}>years</div>
+					</div>
 				</div>
 
-				<label htmlFor="">Interest Rate</label>
-				<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
-					<input type="number" name='rate'/>
-					<div className={`${style.placeholder} ${style.amountPlaceholder}`}>%</div>
+				<div>
+					<label htmlFor="">Interest Rate</label>
+					<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
+						<input type="number" name='rate'/>
+						<div className={`${style.placeholder} ${style.amountPlaceholder}`}>%</div>
+					</div>
 				</div>
 			</div>
 
@@ -47,7 +51,7 @@ const FormSection = () => {
 			<button className={style.calcButton}>Calculate Repayment</button>
 
 		</form>
-	</div>
+	</section>
   )
 }
 

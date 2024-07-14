@@ -1,6 +1,6 @@
 .mainContainer {
 	background: var(--color-white);
-	padding: 20px;
+	padding: 30px 20px;
 	flex: 1;
 }
 
@@ -28,9 +28,16 @@
 	justify-content: space-between	;
 }
 
+.inputAndPlacholderWrapper:has(input[type='number']:focus) {
+	border-color: var(--color-lime);
+}
 input[type='number'] {
 	border: none;
 	padding: 0 15px;
+}
+
+input[type='number']:focus-visible {
+	outline: none;
 }
 
 label:not(.radioLabel),
@@ -39,6 +46,8 @@ label:not(.radioLabel),
 .clearAllButton {
 	color: grey;
 }
+
+
 
 .amountField {
 	border: 1px solid black;
@@ -90,3 +99,13 @@ label:not(.radioLabel),
 	top: 3px;
 }
 
+@media screen and (min-width: 600px) {
+	.mainContainer {
+		padding: 30px;
+	}
+
+	.termRateWrapper {
+		display: flex;
+		gap: 20px;
+	}
+}

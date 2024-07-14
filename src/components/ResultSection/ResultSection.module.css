@@ -1,0 +1,58 @@
+.resultSection {
+	display: flex;	
+	flex-direction: column;
+	gap: 20px;
+	padding: 30px 20px;
+
+	color: var(--color-white);
+	background: rgb(26, 47, 63);
+}
+
+.displayResultSectionBackground {
+	height: fit-content;
+	border-radius: 10px;
+	overflow: hidden;
+	margin-bottom: 30px;
+	background: var(--color-lime);
+}
+
+.displayResultSection {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: 5px;
+	padding: 30px 20px 60px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: rgb(20, 36, 48);;
+}
+
+.displayResultSection hr {
+	margin: 30px 0;
+	border-color: rgba(255, 255, 255, 30%)
+}
+
+
+.monthlyRepay {
+	font-size: 40px;
+	font-weight: 700;
+	color: var(--color-lime);
+}
+
+.monthlyRepay::before,
+.termRepay::before {
+	content: "£";
+}
+
+.termRepay {
+	font-size: 24px;
+	font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+	.resultSection {
+		border-bottom-left-radius: 30px;
+		overflow: hidden;
+		padding: 30px;
+	}	
+}
