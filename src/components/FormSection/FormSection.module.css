@@ -49,7 +49,7 @@ label:not(.radioLabel),
 	justify-content: center;
 	align-items: center;
 	padding: 0 15px;
-	background: lightblue;
+	background: rgb(214, 236, 243);
 }
 
 .radioButtons label {
@@ -65,14 +65,28 @@ label:not(.radioLabel),
 	border-radius: var(--border-radius-small);
 }
 
+.radioLabel:has(input:checked) {
+	background: hsl(61, 70%, 52%, 20%);
+	border-color:  var(--color-lime);
+}
+
 .radioButtons {
 	margin-bottom: 30px;
 }
 
 .calcButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 	border-radius: var(--border-radius-large);
 	padding: 5px 30px;
 	background: var(--color-lime);
+}
 
+.calcButton::before {
+	content: url(../../assets/images/icon-calculator.svg);
+	position: relative;
+	top: 3px;
 }
 

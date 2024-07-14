@@ -34,7 +34,7 @@ const FormSection = () => {
 			<div className={style.radioButtons} htmlFor="mortgageType">
 				Mortgage Type
 				<label className={`${style.repaymentLabel} ${style.radioLabel}`} htmlFor="repayment">
-					<input type="radio" value="repayment" name='mortgageType' id='repayment' />
+					<input type="radio" value="repayment" name='mortgageType' id='repayment' checked/>
 					Repayment
 				</label>
 
