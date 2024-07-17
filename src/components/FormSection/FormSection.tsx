@@ -10,7 +10,6 @@ type Inputs = {
 		value: MortageType,
 		checked: boolean,
 	},
-
 };
 
 
@@ -41,27 +40,25 @@ const FormSection = () => {
 						£
 					</div>
 					<input
-						{...register("amount", { required: true })}
+						{...register("amount", { required: "This field is required" })}
 						type="number"
 					/>
 				</div>
+				<p>{ errors.amount?.message}</p>
 
 				<div className={style.termRateWrapper}>
 					<div>
 						<label htmlFor="term">Mortgage Term</label>
-						<div
-							className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}
-						>
+						<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
 							<input
-								{...register("term", { required: true })}
+								{...register("term", { required: "This field is required" })}
 								type="number"
 							/>
-							<div
-								className={`${style.placeholder} ${style.amountPlaceholder}`}
-							>
+							<div className={`${style.placeholder} ${style.amountPlaceholder}`}>
 								years
 							</div>
 						</div>
+						<p>{ errors.term?.message}</p>
 					</div>
 
 					<div>
@@ -70,7 +67,7 @@ const FormSection = () => {
 							className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}
 						>
 							<input
-								{...register("rate", { required: true })}
+								{...register("rate", { required: "This field is required" })}
 								type="number"
 							/>
 							<div
@@ -79,6 +76,7 @@ const FormSection = () => {
 								%
 							</div>
 						</div>
+							<p>{ errors.rate?.message}</p>
 					</div>
 				</div>
 
@@ -107,6 +105,7 @@ const FormSection = () => {
 						Interest Only
 					</label>
 				</div>
+				<p>{ errors.mortgageType?.message}</p>
 
 				<button className={style.calcButton}>
 					Calculate Repayment

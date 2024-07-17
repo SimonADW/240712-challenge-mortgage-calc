@@ -18,10 +18,16 @@
 }
 
 .inputAndPlacholderWrapper {
-	display: flex;
-	margin-bottom: 30px;
+	display: flex;	
 	border-radius: var(--border-radius-small);
 	overflow: hidden;
+}
+
+/* Error papraphs */
+.mainContainer p {
+	margin-bottom: 30px;
+	color: var(--color-red);
+
 }
 
 .inputAndPlacholderWrapper:not(.amountField) {
