@@ -23,12 +23,7 @@
 	overflow: hidden;
 }
 
-/* Error papraphs */
-.mainContainer p {
-	margin-bottom: 30px;
-	color: var(--color-red);
 
-}
 
 .inputAndPlacholderWrapper:not(.amountField) {
 	justify-content: space-between	;
@@ -37,6 +32,8 @@
 .inputAndPlacholderWrapper:has(input[type='number']:focus) {
 	border-color: var(--color-lime);
 }
+
+
 input[type='number'] {
 	border: none;
 	padding: 0 15px;
@@ -52,8 +49,6 @@ label:not(.radioLabel),
 .clearAllButton {
 	color: grey;
 }
-
-
 
 .amountField {
 	border: 1px solid black;
@@ -104,6 +99,25 @@ label:not(.radioLabel),
 	position: relative;
 	top: 3px;
 }
+
+/* ---- Errors ----- */
+.mainContainer p {
+	margin-bottom: 30px;
+	color: var(--color-red);
+}
+
+.errorState,
+.errorState:has(input[type='number']:focus) {
+	border-color: var(--color-red);
+}
+
+.errorStatePlaceholder {
+	background: hsl(4, 69%, 50%, 20%)
+
+	;
+}
+
+/* ---- DESKTOP ------ */
 
 @media screen and (min-width: 600px) {
 	.mainContainer {

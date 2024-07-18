@@ -32,10 +32,10 @@ const FormSection = () => {
 
 				<label htmlFor="">Mortgage Amount</label>
 				<div
-					className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}
+					className={`${style.amountField} ${style.inputAndPlacholderWrapper} ${errors.amount && style.errorState}`}
 				>
 					<div
-						className={`${style.placeholder} ${style.amountPlaceholder}`}
+						className={`${style.placeholder} ${style.amountPlaceholder} ${errors.amount && style.errorStatePlaceholder}`}
 					>
 						£
 					</div>
@@ -49,12 +49,12 @@ const FormSection = () => {
 				<div className={style.termRateWrapper}>
 					<div>
 						<label htmlFor="term">Mortgage Term</label>
-						<div className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}>
+						<div className={`${style.amountField} ${style.inputAndPlacholderWrapper} ${errors.term && style.errorState}`}>
 							<input
 								{...register("term", { required: "This field is required" })}
 								type="number"
 							/>
-							<div className={`${style.placeholder} ${style.amountPlaceholder}`}>
+							<div className={`${style.placeholder} ${style.amountPlaceholder} ${errors.term && style.errorStatePlaceholder}`}>
 								years
 							</div>
 						</div>
@@ -64,14 +64,14 @@ const FormSection = () => {
 					<div>
 						<label htmlFor="">Interest Rate</label>
 						<div
-							className={`${style.amountField} ${style.inputAndPlacholderWrapper}`}
+							className={`${style.amountField} ${style.inputAndPlacholderWrapper} ${errors.rate && style.errorState}`}
 						>
 							<input
 								{...register("rate", { required: "This field is required" })}
 								type="number"
 							/>
 							<div
-								className={`${style.placeholder} ${style.amountPlaceholder}`}
+								className={`${style.placeholder} ${style.amountPlaceholder} ${errors.rate && style.errorStatePlaceholder}`}
 							>
 								%
 							</div>
