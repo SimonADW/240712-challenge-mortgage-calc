@@ -1,33 +1,59 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import style from "./FormSection.module.css";
+import { useState, useEffect } from "react";
+
+type FormPropsType = {
+	setMortgageCalculations: React.Dispatch<React.SetStateAction<number[]>>;
+}
 
 type MortageType = "repayment" | "mortageOnly";
 type Inputs = {
 	amount: number;
 	term: number;
 	rate: number;
-	mortgageType: {
-		value: MortageType,
-		checked: boolean,
-	},
+	mortgageType: MortageType;
 };
 
+const FormSection = ({setMortgageCalculations}: FormPropsType) => {
+	const [inputValues, setInputValues] = useState<Inputs>();
 
-const FormSection = () => {
+	useEffect(() => {
+		// TODO: FIX calculations
+		if(inputValues) {
+			const mainAmount = Number(inputValues.amount);
+			const totalNumberOfPayments = Number(inputValues.term * 12);
+			const monthlyInterest = ((mainAmount * (Number(inputValues.rate) * 0.01 )) / totalNumberOfPayments);
+			const monthlyDownpayment = mainAmount / totalNumberOfPayments;
+			
+			let monthlyPayments: number;
+			let totalRepayed = (monthlyDownpayment + monthlyInterest) * totalNumberOfPayments;
+			if(inputValues.mortgageType === "repayment") {								
+				monthlyPayments = totalRepayed / totalNumberOfPayments;
+			} else {
+				monthlyPayments = mainAmount * monthlyInterest;
+			}			
+			monthlyPayments = parseFloat(monthlyPayments.toFixed(2));
+			totalRepayed = parseFloat(totalRepayed.toFixed(2));
+			setMortgageCalculations([monthlyPayments, totalRepayed]);
+		}
+	}, [inputValues, setMortgageCalculations]);	
+
 	const {
 		register,
 		handleSubmit,
-		watch,
 		formState: { errors },
 	} = useForm<Inputs>();
-	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+	
+	const onSubmit: SubmitHandler<Inputs> = (data) => {
+		setInputValues(data)
+	}
 
 	return (
 		<section className={style.mainContainer}>
 			<form action="" onSubmit={handleSubmit(onSubmit)}>
 				<h1>Mortgage Calculator</h1>
-				<button className={style.clearAllButton}>Clear All</button>
-
+				<button type="reset" className={style.clearAllButton}>Clear All</button>
+ 
 				<br />
 
 				<label htmlFor="">Mortgage Amount</label>

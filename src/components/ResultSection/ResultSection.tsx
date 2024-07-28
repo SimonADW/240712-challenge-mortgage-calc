@@ -1,7 +1,13 @@
 import React from 'react'
 import style from './ResultSection.module.css'
 
-const ResultSection = () => {
+type ResultProps = {
+  mortgageCalculations: number[]
+}
+
+const ResultSection = ({mortgageCalculations}: ResultProps) => {
+  console.log(mortgageCalculations);
+  
   return (
 	<>
   <section className={style.resultSection}>
@@ -12,10 +18,10 @@ const ResultSection = () => {
     <div className={style.displayResultSectionBackground}>
       <div className={style.displayResultSection}>
         <p>Your monthly repayments</p>
-        <h3 className={style.monthlyRepay}>1,200</h3>
+        <h3 className={style.monthlyRepay}>{mortgageCalculations[0]}</h3>
         <hr />
         <p>Total you´ll repay over the term</p>
-        <h3 className={style.termRepay}>5,300,400</h3>
+        <h3 className={style.termRepay}>{mortgageCalculations[1]}</h3>
       </div>
     </div>
   </section>

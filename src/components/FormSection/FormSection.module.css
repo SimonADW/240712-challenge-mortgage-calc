@@ -18,28 +18,30 @@
 }
 
 .inputAndPlacholderWrapper {
-	display: flex;	
+	display: flex;
 	border-radius: var(--border-radius-small);
 	overflow: hidden;
 }
 
-
-
 .inputAndPlacholderWrapper:not(.amountField) {
-	justify-content: space-between	;
+	justify-content: space-between;
 }
 
-.inputAndPlacholderWrapper:has(input[type='number']:focus) {
+.inputAndPlacholderWrapper:has(input[type="number"]:focus) {
 	border-color: var(--color-lime);
 }
 
-
-input[type='number'] {
+input[type="number"] {
 	border: none;
 	padding: 0 15px;
 }
 
-input[type='number']:focus-visible {
+.mainContainer input,
+.mainContainer .radioLabel {
+	cursor: pointer;
+}
+
+input[type="number"]:focus-visible {
 	outline: none;
 }
 
@@ -71,13 +73,13 @@ label:not(.radioLabel),
 	color: black;
 	padding: 10px;
 	margin-bottom: 5px;
-	border: 1px solid grey;	
+	border: 1px solid grey;
 	border-radius: var(--border-radius-small);
 }
 
 .radioLabel:has(input:checked) {
 	background: hsl(61, 70%, 52%, 20%);
-	border-color:  var(--color-lime);
+	border-color: var(--color-lime);
 }
 
 .radioButtons {
@@ -107,14 +109,12 @@ label:not(.radioLabel),
 }
 
 .errorState,
-.errorState:has(input[type='number']:focus) {
+.errorState:has(input[type="number"]:focus) {
 	border-color: var(--color-red);
 }
 
 .errorStatePlaceholder {
-	background: hsl(4, 69%, 50%, 20%)
-
-	;
+	background: hsl(4, 69%, 50%, 20%);
 }
 
 /* ---- DESKTOP ------ */
