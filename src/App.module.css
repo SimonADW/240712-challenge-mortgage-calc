@@ -1,5 +1,4 @@
 
-
 @media screen and (min-width: 600px) {
 
 	.main {
@@ -9,6 +8,7 @@
 		border-radius: 30px;
 		overflow: hidden;
 		background: white;
+		margin: 0 2rem;
 	}
 	
 	.main section {
