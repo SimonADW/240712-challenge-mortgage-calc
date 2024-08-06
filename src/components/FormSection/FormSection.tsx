@@ -120,28 +120,29 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 				<div className={style.radioButtons}>
 					Mortgage Type
 					<label
-						className={`${style.repaymentLabel} ${style.radioLabel}`}
+						className={`${style.repaymentLabel} ${style.radioLabel} ${errors.mortgageType && style.errorState}`}
 						htmlFor="repayment"
 					>
 						<input
-							{...register("mortgageType")}
+							{...register("mortgageType", { required: "Please select a mortgage type" })}
 							type="radio"
 							value="repayment"
-							id="repayment"							
+							id="repayment"
+
 						/>
 						Repayment
 					</label>
-					<label className={style.radioLabel} htmlFor="interestOnly">
+					<label className={`${style.radioLabel} ${style.interestLabel} ${errors.mortgageType && style.errorState}`} htmlFor="interestOnly">
 						<input
-							{...register("mortgageType")}
+							{...register("mortgageType", { required: "Please select a mortgage type" })}
 							type="radio"
 							value="interestOnly"
 							id="interestOnly"
 						/>
 						Interest Only
 					</label>
-				</div>
 				<p>{ errors.mortgageType?.message}</p>
+				</div>
 
 				<button className={style.calcButton}>
 					Calculate Repayment

@@ -64,7 +64,8 @@ label:not(.radioLabel),
 	background: rgb(214, 236, 243);
 }
 
-.radioButtons label {
+.repaymentLabel,
+.interestLabel {
 	width: 100%;
 	display: flex;
 	flex-direction: row;

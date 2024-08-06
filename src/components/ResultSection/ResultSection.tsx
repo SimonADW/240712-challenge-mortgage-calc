@@ -6,7 +6,6 @@ type ResultProps = {
 }
 
 const ResultSection = ({mortgageCalculations}: ResultProps) => {
-  console.log(mortgageCalculations);
   
   return (
 	<>
