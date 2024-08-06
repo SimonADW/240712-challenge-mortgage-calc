@@ -17,25 +17,36 @@ type Inputs = {
 const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 	const [inputValues, setInputValues] = useState<Inputs>();
 
-	useEffect(() => {
-		// TODO: FIX calculations
+	const calculateRepayments = ()=> {
+		// TODO: FIX "Interest Only" calculations
 		if(inputValues) {
 			const mainAmount = Number(inputValues.amount);
 			const totalNumberOfPayments = Number(inputValues.term * 12);
-			const monthlyInterest = ((mainAmount * (Number(inputValues.rate) * 0.01 )) / totalNumberOfPayments);
-			const monthlyDownpayment = mainAmount / totalNumberOfPayments;
+			const monthlyInterest = (Number(inputValues.rate) / 100 / 12 );			
 			
+			let totalRepayed: number;
 			let monthlyPayments: number;
-			let totalRepayed = (monthlyDownpayment + monthlyInterest) * totalNumberOfPayments;
+
+			const calcMonthlyPayments = (mainAmount: number, numOfPayments: number, monthlyInterestRate: number)=> {
+				return (mainAmount * monthlyInterestRate * Math.pow(1 + monthlyInterest, numOfPayments)) / (Math.pow(1 + monthlyInterestRate, numOfPayments) -1) 
+			}
+
 			if(inputValues.mortgageType === "repayment") {								
-				monthlyPayments = totalRepayed / totalNumberOfPayments;
+				monthlyPayments = calcMonthlyPayments(mainAmount, totalNumberOfPayments, monthlyInterest);
+				totalRepayed = monthlyPayments * totalNumberOfPayments;
 			} else {
 				monthlyPayments = mainAmount * monthlyInterest;
+				totalRepayed = monthlyPayments * totalNumberOfPayments;
 			}			
+
 			monthlyPayments = parseFloat(monthlyPayments.toFixed(2));
 			totalRepayed = parseFloat(totalRepayed.toFixed(2));
 			setMortgageCalculations([monthlyPayments.toLocaleString(), totalRepayed.toLocaleString()]);
 		}
+	}
+
+	useEffect(() => {
+		calculateRepayments()
 	}, [inputValues, setMortgageCalculations]);	
 
 	const {
@@ -116,8 +127,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 							{...register("mortgageType")}
 							type="radio"
 							value="repayment"
-							id="repayment"
-							checked
+							id="repayment"							
 						/>
 						Repayment
 					</label>
