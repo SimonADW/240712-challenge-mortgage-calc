@@ -2,7 +2,7 @@ import React from 'react'
 import style from './ResultSection.module.css'
 
 type ResultProps = {
-  mortgageCalculations: number[]
+  mortgageCalculations: string[]
 }
 
 const ResultSection = ({mortgageCalculations}: ResultProps) => {

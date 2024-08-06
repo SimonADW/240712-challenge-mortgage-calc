@@ -3,7 +3,7 @@ import style from "./FormSection.module.css";
 import { useState, useEffect } from "react";
 
 type FormPropsType = {
-	setMortgageCalculations: React.Dispatch<React.SetStateAction<number[]>>;
+	setMortgageCalculations: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 type MortageType = "repayment" | "mortageOnly";
@@ -34,7 +34,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 			}			
 			monthlyPayments = parseFloat(monthlyPayments.toFixed(2));
 			totalRepayed = parseFloat(totalRepayed.toFixed(2));
-			setMortgageCalculations([monthlyPayments, totalRepayed]);
+			setMortgageCalculations([monthlyPayments.toLocaleString(), totalRepayed.toLocaleString()]);
 		}
 	}, [inputValues, setMortgageCalculations]);	
 
