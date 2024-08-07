@@ -17,8 +17,7 @@ type Inputs = {
 const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 	const [inputValues, setInputValues] = useState<Inputs>();
 
-	const calculateRepayments = ()=> {
-		// TODO: FIX "Interest Only" calculations
+	const calculateRepayments = ()=> {		
 		if(inputValues) {
 			const mainAmount = Number(inputValues.amount);
 			const totalNumberOfPayments = Number(inputValues.term * 12);
@@ -31,12 +30,13 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 				return (mainAmount * monthlyInterestRate * Math.pow(1 + monthlyInterest, numOfPayments)) / (Math.pow(1 + monthlyInterestRate, numOfPayments) -1) 
 			}
 
+			monthlyPayments = calcMonthlyPayments(mainAmount, totalNumberOfPayments, monthlyInterest);
+
 			if(inputValues.mortgageType === "repayment") {								
-				monthlyPayments = calcMonthlyPayments(mainAmount, totalNumberOfPayments, monthlyInterest);
 				totalRepayed = monthlyPayments * totalNumberOfPayments;
 			} else {
-				monthlyPayments = mainAmount * monthlyInterest;
-				totalRepayed = monthlyPayments * totalNumberOfPayments;
+				monthlyPayments = monthlyPayments - (mainAmount / totalNumberOfPayments);
+				totalRepayed = (monthlyPayments * totalNumberOfPayments);
 			}			
 
 			monthlyPayments = parseFloat(monthlyPayments.toFixed(2));
