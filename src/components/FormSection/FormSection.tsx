@@ -63,7 +63,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 		<section className={style.mainContainer}>
 			<form action="" onSubmit={handleSubmit(onSubmit)}>
 				<h1>Mortgage Calculator</h1>
-				<button type="reset" className={style.clearAllButton}>Clear All</button>
+				<button type="reset" className={style.clearAllButton} onClick={()=>setMortgageCalculations(["0","0"])}>Clear All</button>
  
 				<br />
 
@@ -79,6 +79,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 					<input
 						{...register("amount", { required: "This field is required" })}
 						type="number"
+						min={0}
 					/>
 				</div>
 				<p>{ errors.amount?.message}</p>
@@ -90,6 +91,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 							<input
 								{...register("term", { required: "This field is required" })}
 								type="number"
+								min={0}
 							/>
 							<div className={`${style.placeholder} ${style.amountPlaceholder} ${errors.term && style.errorStatePlaceholder}`}>
 								years
@@ -106,6 +108,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 							<input
 								{...register("rate", { required: "This field is required" })}
 								type="number"
+								min={0}
 							/>
 							<div
 								className={`${style.placeholder} ${style.amountPlaceholder} ${errors.rate && style.errorStatePlaceholder}`}
