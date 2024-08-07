@@ -35,7 +35,7 @@ const ResultSection = ({mortgageCalculations}: ResultProps) => {
   <section className={`${style.resultSection} ${style.illustrationSection}`}>
       <img src={illustrationEmpty} alt="Illustration" />
       <h1>Results shown here</h1>
-      <p>Complete the form and click "Calculate payments to see what your monthly repayments would be</p>
+      <p>Complete the form and click "Calculate payments" to see what your monthly repayments would be</p>
     </section>
   }
   </>
