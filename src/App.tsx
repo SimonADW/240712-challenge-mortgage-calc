@@ -7,7 +7,7 @@ import "./reset.css";
 
 
 function App() {
-	const [mortgageCalculations, setMortgageCalculations] = useState<number[]>([0,0]);
+	const [mortgageCalculations, setMortgageCalculations] = useState<string[]>(["0","0"]);
 	return (
 		<>
 			<main className={style.main}>

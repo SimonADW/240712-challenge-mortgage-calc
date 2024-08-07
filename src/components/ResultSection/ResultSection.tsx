@@ -1,4 +1,3 @@
-import React from 'react'
 import style from './ResultSection.module.css'
 import illustrationEmpty from '../../assets/images/illustration-empty.svg'
 
