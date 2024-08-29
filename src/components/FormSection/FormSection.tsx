@@ -67,7 +67,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
  
 				<br />
 
-				<label htmlFor="">Mortgage Amount</label>
+				<label htmlFor="amount">Mortgage Amount</label>
 				<div
 					className={`${style.amountField} ${style.inputAndPlacholderWrapper} ${errors.amount && style.errorState}`}
 				>
@@ -101,7 +101,7 @@ const FormSection = ({setMortgageCalculations}: FormPropsType) => {
 					</div>
 
 					<div>
-						<label htmlFor="">Interest Rate</label>
+						<label htmlFor="rate">Interest Rate</label>
 						<div
 							className={`${style.amountField} ${style.inputAndPlacholderWrapper} ${errors.rate && style.errorState}`}
 						>
